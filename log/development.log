@@ -693,3 +693,28 @@ Processing by Devise::RegistrationsController#new as HTML
 Completed 200 OK in 109ms (Views: 104.6ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-06-05 07:34:49 +0300
+  [1m[35m (8.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 847ms (Views: 821.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-05 07:34:53 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (93.3ms)
+Completed 200 OK in 263ms (Views: 168.2ms | ActiveRecord: 21.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-05 07:34:56 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.9ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 95ms (Views: 91.3ms | ActiveRecord: 0.0ms)
+
+
