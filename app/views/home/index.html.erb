@@ -1,5 +1,7 @@
 <%if user_signed_in? %>
    <p> Click here to edit your account </p> <%= link_to "Edit", edit_user_registration_path %>
+   <p> Click here to log out </p>  <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+
 <%else%>
    <p> Welcome </p>
    <%= link_to "Sign In", new_user_session_path%>
