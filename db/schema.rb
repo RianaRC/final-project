@@ -10,27 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_100013) do
+ActiveRecord::Schema.define(version: 2018_06_07_052027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "images_events", force: :cascade do |t|
-    t.string "image"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "post_attachments", force: :cascade do |t|
-    t.string "image"
-    t.bigint "post_id"
+  create_table "evenements", force: :cascade do |t|
+    t.string "titre"
+    t.text "description"
+    t.datetime "date"
+    t.integer "price"
+    t.bigint "category_id"
+    t.integer "organisateur_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_post_attachments_on_post_id"
+    t.index ["category_id"], name: "index_evenements_on_category_id"
   end
 
-  create_table "posts", force: :cascade do |t|
-    t.string "title"
+  create_table "organisateurs", force: :cascade do |t|
+    t.string "kind"
+    t.string "name"
+    t.text "about"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,5 +67,5 @@ ActiveRecord::Schema.define(version: 2018_06_06_100013) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "post_attachments", "posts"
+  add_foreign_key "evenements", "categories"
 end

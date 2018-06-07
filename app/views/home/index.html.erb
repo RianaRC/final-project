@@ -1,6 +1,8 @@
 <%if user_signed_in? %>
    <p> Click here to edit your account </p> <%= link_to "Edit", edit_user_registration_path %>
    <p> Click here to log out </p>  <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+   <p> Click here to create new event </p> <%= link_to "Create Event", new_evenement_path %>
+   <p> Click here to see all events </p> <%= link_to "See Events", evenements_path %>
 
 <%else%>
    <p> Welcome </p>

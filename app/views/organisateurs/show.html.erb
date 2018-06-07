@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @organisateur.kind %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @organisateur.name %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @organisateur.about %>
+</p>
+
+<%= link_to 'Edit', edit_organisateur_path(@organisateur) %> |
+<%= link_to 'Back', organisateurs_path %>
