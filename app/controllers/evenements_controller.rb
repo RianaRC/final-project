@@ -10,6 +10,11 @@ class EvenementsController < ApplicationController
   # GET /evenements/1
   # GET /evenements/1.json
   def show
+    if user_signed_in?
+    @evenement = Evenement.find(params[:id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /evenements/new
@@ -29,7 +34,7 @@ class EvenementsController < ApplicationController
   # POST /evenements.json
   def create
     @evenement = Evenement.new(evenement_params)
-
+    @evenement.user_id = current_user.id
     respond_to do |format|
       if @evenement.save
         format.html { redirect_to @evenement, notice: 'Evenement was successfully created.' }
@@ -39,7 +44,6 @@ class EvenementsController < ApplicationController
         format.json { render json: @evenement.errors, status: :unprocessable_entity }
       end
     end
-    @creator = current_user
   end
 
   # PATCH/PUT /evenements/1

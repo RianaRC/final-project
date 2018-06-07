@@ -29,6 +29,7 @@
   <strong>organisateur:</strong>
   <%= @evenement.organisateur.name %>
 </p>
-
-<%= link_to 'Edit', edit_evenement_path(@evenement) %> |
+<% if current_user.id == @evenement.user_id %>
+<%= link_to 'Edit', edit_evenement_path(@evenement) %> 
+<%end%>
 <%= link_to 'Back', evenements_path %>
