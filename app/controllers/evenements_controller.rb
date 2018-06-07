@@ -10,6 +10,11 @@ class EvenementsController < ApplicationController
   # GET /evenements/1
   # GET /evenements/1.json
   def show
+    if user_signed_in?
+    @evenement = Evenement.find(params[:id])
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /evenements/new

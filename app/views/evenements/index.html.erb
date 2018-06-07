@@ -23,10 +23,12 @@
       <td><%= evenement.price %></td>
       <td><%= evenement.category.name %></td>
       <td><%= link_to 'Show', evenement %></td>
-      <% if current_user.id == evenement.user_id %>
+      <% if user_signed_in? %>
+        <% if current_user.id == evenement.user_id %>
           <td><%= link_to 'Edit', edit_evenement_path(evenement) %></td>
           <td><%= link_to 'Destroy', evenement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+      <%end%>
       </tr>
     <% end %>
   </tbody>
