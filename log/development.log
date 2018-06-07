@@ -6290,3 +6290,1093 @@ Completed 200 OK in 110ms (Views: 104.2ms | ActiveRecord: 0.0ms)
 
 
 >>>>>>> amelioration
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2796851147695188780)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCommentaires (20180607083922)
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (81.1ms)[0m  [1m[35mCREATE TABLE "commentaires" ("id" bigserial primary key, "comment" character varying, "evenement_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_aedea92c37"
+FOREIGN KEY ("evenement_id")
+  REFERENCES "evenements" ("id")
+)[0m
+  ↳ db/migrate/20180607083922_create_commentaires.rb:3
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE  INDEX  "index_commentaires_on_evenement_id" ON "commentaires"  ("evenement_id")[0m
+  ↳ db/migrate/20180607083922_create_commentaires.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (1.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180607083922"]]
+  ↳ bin/rails:9
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2796851147695188780)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2018-06-07 11:59:35 +0300
+  [1m[35m (4.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 765ms (Views: 731.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/evenements" for 127.0.0.1 at 2018-06-07 11:59:40 +0300
+  
+SyntaxError (/home/riana/Desktop/projet final/final-project/app/controllers/evenements_controller.rb:15: syntax error, unexpected ':'
+...mmentaire.find_by(evenement.id: @evenement.id)
+...                              ^
+/home/riana/Desktop/projet final/final-project/app/controllers/evenements_controller.rb:15: syntax error, unexpected ')', expecting keyword_end
+...by(evenement.id: @evenement.id)
+...                              ^):
+  
+app/controllers/evenements_controller.rb:15: syntax error, unexpected ':'
+app/controllers/evenements_controller.rb:15: syntax error, unexpected ')', expecting keyword_end
+Started GET "/evenements" for 127.0.0.1 at 2018-06-07 12:02:08 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (2.3ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  Rendered evenements/index.html.erb within layouts/application (180.3ms)
+Completed 200 OK in 295ms (Views: 234.7ms | ActiveRecord: 37.7ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 12:02:46 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.7ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:77
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 14ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-07 12:02:46 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (51.5ms)
+Completed 200 OK in 283ms (Views: 163.2ms | ActiveRecord: 26.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2018-06-07 12:02:59 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qa3R19kPilK/4UYdm75xWXSlEtpF0p6b3NxaLAgk9q/Uh86iI3RLHBqugefBgtGq0IVu8s2Nyz1MPE2m4hPFIw==", "user"=>{"email"=>"riana.rakotoarinivo@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "riana.rakotoarinivo@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (28.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = $1, "last_sign_in_at" = $2, "sign_in_count" = $3, "updated_at" = $4 WHERE "users"."id" = $5[0m  [["current_sign_in_at", "2018-06-07 09:02:59.887845"], ["last_sign_in_at", "2018-06-07 07:36:57.803635"], ["sign_in_count", 4], ["updated_at", "2018-06-07 09:02:59.892828"], ["id", 1]]
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 349ms (ActiveRecord: 38.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-07 12:02:59 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 102ms (Views: 95.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/evenements" for 127.0.0.1 at 2018-06-07 12:03:04 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (1.1ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:26
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  Rendered evenements/index.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 132ms (Views: 121.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 12:03:06 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.2ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:77
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  [1m[36mCommentaire Load (1.5ms)[0m  [1m[34mSELECT  "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1 LIMIT $2[0m  [["evenement_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:15
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.5ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  Rendered evenements/show.html.erb within layouts/application (74.0ms)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 28.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Commentaire:0x00007fc258112138>):
+    30:   <%= @evenement.organisateur.name %>
+    31: </p>
+    32: 
+    33: <%= @comments.each do |c| %>
+    34:   <ul>
+    35:     <li> <%= c.comment %> </li>
+    36:   </ul>
+  
+app/views/evenements/show.html.erb:33:in `_app_views_evenements_show_html_erb___368449526080673383_70236338948060'
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 12:23:20 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (2.6ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:77
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  [1m[36mCommentaire Load (2.4ms)[0m  [1m[34mSELECT  "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1 LIMIT $2[0m  [["evenement_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:15
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.3ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  Rendered evenements/show.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 128ms (Views: 93.5ms | ActiveRecord: 13.8ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 12:38:00 +0300
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.8ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:77
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  [1m[36mCommentaire Load (1.5ms)[0m  [1m[34mSELECT  "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1 LIMIT $2[0m  [["evenement_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:15
+  Rendering evenements/show.html.erb within layouts/application
+  Rendered evenements/show.html.erb within layouts/application (7.2ms)
+Completed 500 Internal Server Error in 477ms (ActiveRecord: 51.9ms)
+
+
+  
+SyntaxError (/home/riana/Desktop/projet final/final-project/app/views/evenements/show.html.erb:39: syntax error, unexpected '<'
+<% if current_user.id == @even...
+^
+/home/riana/Desktop/projet final/final-project/app/views/evenements/show.html.erb:39: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+<% if current_user.id == @evenement.user_id 
+      ^~~~~~~~~~~~
+/home/riana/Desktop/projet final/final-project/app/views/evenements/show.html.erb:45: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/evenements/show.html.erb:39: syntax error, unexpected '<'
+app/views/evenements/show.html.erb:39: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/views/evenements/show.html.erb:45: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 12:38:58 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.4ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:77
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  [1m[36mCommentaire Load (1.3ms)[0m  [1m[34mSELECT  "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1 LIMIT $2[0m  [["evenement_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:15
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.5ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  Rendered evenements/show.html.erb within layouts/application (224.8ms)
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 27.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Commentaire:0x00007fa980897700>):
+    30:   <%= @evenement.organisateur.name %>
+    31: </p>
+    32: 
+    33: <% @comments.each do |f| %>
+    34:   <ul>
+    35:     <li> <%= f.comment %> </li>
+    36:   </ul>
+  
+app/views/evenements/show.html.erb:33:in `_app_views_evenements_show_html_erb___2298060212132525667_70182991344220'
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 12:39:45 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (2.0ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:77
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.8ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (1.4ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (150.2ms)
+Completed 200 OK in 1216ms (Views: 990.2ms | ActiveRecord: 62.4ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:11:41 +0300
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (3.3ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (2.9ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.5ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (277.5ms)
+Completed 200 OK in 1554ms (Views: 1043.0ms | ActiveRecord: 125.3ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:12:00 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"comment"=>"    je suis le maitre", "Envoyer"=>"Submit Query"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.2.0) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (5.2.0) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+devise (4.4.3) lib/devise/controllers/helpers.rb:255:in `handle_unverified_request'
+actionpack (5.2.0) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (5.2.0) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.0) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.0) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.0) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.0) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.0) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.0) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:13:06 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"comment"=>"    je suis le maitre", "Envoyer"=>"Submit Query"}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.2.0) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (5.2.0) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+devise (4.4.3) lib/devise/controllers/helpers.rb:255:in `handle_unverified_request'
+actionpack (5.2.0) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (5.2.0) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.0) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.0) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.0) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.0) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.0) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.0) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.0) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.0) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.0) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.0) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.0) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.0) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.0) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.0) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.0) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.0) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.0) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.0) lib/action_dispatch/routing/route_set.rb:840:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.5) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.5) lib/rack/etag.rb:25:in `call'
+rack (2.0.5) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.5) lib/rack/head.rb:12:in `call'
+actionpack (5.2.0) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.5) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.5) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.0) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.0) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.0) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:13:43 +0300
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (6.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (229.0ms)
+Completed 200 OK in 956ms (Views: 893.7ms | ActiveRecord: 29.8ms)
+
+
+Started GET "/evenements" for 127.0.0.1 at 2018-06-07 13:13:48 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (12.1ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:26
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  Rendered evenements/index.html.erb within layouts/application (206.5ms)
+Completed 200 OK in 367ms (Views: 285.7ms | ActiveRecord: 43.0ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:13:51 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.0ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (3.4ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.1ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (101.6ms)
+Completed 200 OK in 249ms (Views: 173.6ms | ActiveRecord: 37.1ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:14:04 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"cbty8eT66Zcm+KqUWc3aJocBgc4500n9r6krdtM0pBvP/urXWghrcmAE4/lLKk6ye96pU8/pDm1Ghb6KNVNokA==", "comment"=>"    je suis le maitre Riana", "Envoyer"=>"Submit Query"}
+Completed 404 Not Found in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement without an ID):
+  
+app/controllers/evenements_controller.rb:75:in `newcomment'
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:20:29 +0300
+  [1m[35m (5.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (206.5ms)
+Completed 200 OK in 1011ms (Views: 953.3ms | ActiveRecord: 18.7ms)
+
+
+Started GET "/evenements" for 127.0.0.1 at 2018-06-07 13:20:35 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (4.6ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (1.4ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:26
+  [1m[36mCategory Load (3.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  Rendered evenements/index.html.erb within layouts/application (201.7ms)
+Completed 200 OK in 336ms (Views: 270.6ms | ActiveRecord: 34.4ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:20:40 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (2.5ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.1ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.1ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (147.2ms)
+Completed 200 OK in 299ms (Views: 226.8ms | ActiveRecord: 33.9ms)
+
+
+Started POST "/evenements/comment_path(@evenement.id)" for 127.0.0.1 at 2018-06-07 13:20:54 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/evenements/comment_path(@evenement.id)"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/evenements/comment_path(@evenement.id)" for 127.0.0.1 at 2018-06-07 13:21:55 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/evenements/comment_path(@evenement.id)"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:22:11 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.0ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (3.5ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (5.0ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 175ms (Views: 147.0ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/evenements/method=%22post%22?authenticity_token=T9skSGa0Xs7IRQTES9zqRGNc1lmOOeysI1gXCi%2FcOcbxnrxu2EbcK465TalZO37Qn4P%2BxHgDqzzKdIL2ybv1TQ%3D%3D&comment=++++yeahhhhhhhhh&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:22:19 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"T9skSGa0Xs7IRQTES9zqRGNc1lmOOeysI1gXCi/cOcbxnrxu2EbcK465TalZO37Qn4P+xHgDqzzKdIL2ybv1TQ==", "comment"=>"    yeahhhhhhhhh", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (3.8ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 16ms (ActiveRecord: 3.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/evenements/" for 127.0.0.1 at 2018-06-07 13:26:26 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (3.0ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:26
+  [1m[36mCategory Load (1.8ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  Rendered evenements/index.html.erb within layouts/application (257.4ms)
+Completed 200 OK in 404ms (Views: 321.4ms | ActiveRecord: 64.6ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:26:31 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.2ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (3.2ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.0ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (117.7ms)
+Completed 200 OK in 291ms (Views: 228.9ms | ActiveRecord: 32.1ms)
+
+
+Started GET "/evenements/method=%22post%22?authenticity_token=6dE%2Fxsg6kmVFo%2Bs3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR%2Be6ZuTQ%3D%3D&comment=++++hahaha&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:26:36 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"6dE/xsg6kmVFo+s3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR+e6ZuTQ==", "comment"=>"    hahaha", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (1.5ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 13ms (ActiveRecord: 1.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/evenements/method=%22post%22?authenticity_token=6dE%2Fxsg6kmVFo%2Bs3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR%2Be6ZuTQ%3D%3D&comment=++++hahaha&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:27:23 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"6dE/xsg6kmVFo+s3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR+e6ZuTQ==", "comment"=>"    hahaha", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (1.8ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 45ms (ActiveRecord: 14.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/evenements/method=%22post%22?authenticity_token=6dE%2Fxsg6kmVFo%2Bs3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR%2Be6ZuTQ%3D%3D&comment=++++hahaha&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:32:40 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"6dE/xsg6kmVFo+s3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR+e6ZuTQ==", "comment"=>"    hahaha", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (4.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 19ms (ActiveRecord: 4.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/evenements/method=%22post%22?authenticity_token=6dE%2Fxsg6kmVFo%2Bs3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR%2Be6ZuTQ%3D%3D&comment=++++hahaha&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:33:01 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"6dE/xsg6kmVFo+s3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR+e6ZuTQ==", "comment"=>"    hahaha", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (4.2ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 52ms (ActiveRecord: 23.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/evenements/method=%22post%22?authenticity_token=6dE%2Fxsg6kmVFo%2Bs3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR%2Be6ZuTQ%3D%3D&comment=++++hahaha&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:33:24 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"6dE/xsg6kmVFo+s3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR+e6ZuTQ==", "comment"=>"    hahaha", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (1.5ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 46ms (ActiveRecord: 16.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/evenements/method=%22post%22?authenticity_token=6dE%2Fxsg6kmVFo%2Bs3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR%2Be6ZuTQ%3D%3D&comment=++++hahaha&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:34:26 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"6dE/xsg6kmVFo+s3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR+e6ZuTQ==", "comment"=>"    hahaha", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (0.9ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 43ms (ActiveRecord: 18.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/evenements/method=%22post%22?authenticity_token=6dE%2Fxsg6kmVFo%2Bs3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR%2Be6ZuTQ%3D%3D&comment=++++hahaha&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-07 13:35:20 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"authenticity_token"=>"6dE/xsg6kmVFo+s3RslQGnjGsEel1QJ6kr2hgp3BosZXlKfgdsgQgANfolpULsSOhBmY2lPvRep7kTR+e6ZuTQ==", "comment"=>"    hahaha", "Envoyer"=>"Submit Query", "id"=>"method=\"post\""}
+  [1m[36mEvenement Load (1.4ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+Completed 404 Not Found in 8ms (ActiveRecord: 1.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=method="post"):
+  
+app/controllers/evenements_controller.rb:85:in `set_evenement'
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:35:47 +0300
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (147.3ms)
+Completed 200 OK in 1107ms (Views: 1055.9ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/evenements" for 127.0.0.1 at 2018-06-07 13:35:51 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (3.2ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (2.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:26
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  Rendered evenements/index.html.erb within layouts/application (196.4ms)
+Completed 200 OK in 344ms (Views: 267.1ms | ActiveRecord: 35.1ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:35:54 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (2.3ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.6ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (103.4ms)
+Completed 200 OK in 268ms (Views: 181.0ms | ActiveRecord: 32.7ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:40:46 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.3ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (1.4ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (133.0ms)
+Completed 200 OK in 444ms (Views: 203.3ms | ActiveRecord: 66.5ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:49:14 +0300
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (2.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (2.3ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.7ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.8ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (250.5ms)
+Completed 200 OK in 1245ms (Views: 858.9ms | ActiveRecord: 86.7ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:49:29 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"RMYDB0JXHf0VCzxgrVxc4aTIG6ABW3PEDXkhGdLeTHb6g5sh/KWfGFP3dQ2/u8h1WBczPfdhNFTkVbTlNLmA/Q==", "id_en_cours"=>"1", "comment"=>"    Monsieur Itokiana le Ovy", "Envoyer"=>"Submit Query"}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find' for nil:NilClass):
+  
+app/controllers/evenements_controller.rb:78:in `newcomment'
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:50:11 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 125ms (Views: 116.4ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:50:18 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"RMYDB0JXHf0VCzxgrVxc4aTIG6ABW3PEDXkhGdLeTHb6g5sh/KWfGFP3dQ2/u8h1WBczPfdhNFTkVbTlNLmA/Q==", "id_en_cours"=>"1", "comment"=>"    Monsieur Itokiana le Ovy", "Envoyer"=>"Submit Query"}
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `find' for nil:NilClass):
+  
+app/controllers/evenements_controller.rb:78:in `newcomment'
+Started GET "/" for 127.0.0.1 at 2018-06-07 13:50:40 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (175.0ms)
+Completed 200 OK in 268ms (Views: 229.7ms | ActiveRecord: 28.0ms)
+
+
+Started GET "/evenements" for 127.0.0.1 at 2018-06-07 13:50:45 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (2.5ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (1.9ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:26
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mCACHE Category Load (0.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  Rendered evenements/index.html.erb within layouts/application (150.9ms)
+Completed 200 OK in 257ms (Views: 208.6ms | ActiveRecord: 33.3ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:50:50 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.5ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (2.7ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.3ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (90.2ms)
+Completed 200 OK in 221ms (Views: 157.6ms | ActiveRecord: 29.1ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:51:05 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"I9VKUS1aZcePaZs5hWkDsJZ9ZJOEzwOMlNbEUiJ+x/adkNJ3k6jnIsmV0lSXjpckaqJMDnL1RBx9+lGuxBkLfQ==", "id_en_cours"=>"1", "comment"=>"    Ovy Itokiana", "Envoyer"=>"Submit Query"}
+  [1m[36mEvenement Load (1.2ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:78
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/evenements_controller.rb:79
+  [1m[35m (1.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/evenements_controller.rb:79
+No template found for EvenementsController#newcomment, rendering head :no_content
+Completed 204 No Content in 167ms (ActiveRecord: 4.2ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:51:09 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"I9VKUS1aZcePaZs5hWkDsJZ9ZJOEzwOMlNbEUiJ+x/adkNJ3k6jnIsmV0lSXjpckaqJMDnL1RBx9+lGuxBkLfQ==", "id_en_cours"=>"1", "comment"=>"    Ovy Itokiana", "Envoyer"=>"Submit Query"}
+  [1m[36mEvenement Load (1.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:78
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/evenements_controller.rb:79
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/evenements_controller.rb:79
+No template found for EvenementsController#newcomment, rendering head :no_content
+Completed 204 No Content in 126ms (ActiveRecord: 2.6ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:51:13 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"I9VKUS1aZcePaZs5hWkDsJZ9ZJOEzwOMlNbEUiJ+x/adkNJ3k6jnIsmV0lSXjpckaqJMDnL1RBx9+lGuxBkLfQ==", "id_en_cours"=>"1", "comment"=>"    Ovy Itokiana", "Envoyer"=>"Submit Query"}
+  [1m[36mEvenement Load (1.0ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:78
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/evenements_controller.rb:79
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/evenements_controller.rb:79
+No template found for EvenementsController#newcomment, rendering head :no_content
+Completed 204 No Content in 133ms (ActiveRecord: 2.1ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:56:08 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.2ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.0ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.7ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (1.3ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (126.0ms)
+Completed 200 OK in 396ms (Views: 185.0ms | ActiveRecord: 64.7ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:56:24 +0300
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"A+Q57HmCyg+a8MU58V+pX1EjxEWun9k4nM6muS/P5AC9oaHKx3BI6twMjFTjuD3Lrfzs2Filnqh14jNFyagoiw==", "id_en_cours"=>"1", "comment"=>"    Ovy Itokiana", "Envoyer"=>"Submit Query"}
+  [1m[36mEvenement Load (2.7ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:78
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/evenements_controller.rb:79
+  [1m[36mCommentaire Create (18.9ms)[0m  [1m[32mINSERT INTO "commentaires" ("comment", "evenement_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["comment", "    Ovy Itokiana"], ["evenement_id", 1], ["created_at", "2018-06-07 10:56:24.581157"], ["updated_at", "2018-06-07 10:56:24.581157"]]
+  ↳ app/controllers/evenements_controller.rb:79
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/evenements_controller.rb:79
+No template found for EvenementsController#newcomment, rendering head :no_content
+Completed 204 No Content in 168ms (ActiveRecord: 26.6ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:56:50 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.7ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:85
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.3ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (1.7ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 154ms (Views: 125.1ms | ActiveRecord: 10.7ms)
+
+
+Started POST "/" for 127.0.0.1 at 2018-06-07 13:59:36 +0300
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EvenementsController#newcomment as HTML
+  Parameters: {"authenticity_token"=>"Z0u4HvHm5ik9xtuKxLh/BT3uchWAeyn4W23UvVDwy9rZDiA4TxRkzHs6kufWX+uRwTFaiHZBbmiyQUFBtpcHUQ==", "id_en_cours"=>"1", "comment"=>" Ovy Beloha Be Itokiana", "Envoyer"=>"Submit Query"}
+  [1m[36mEvenement Load (2.3ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:78
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/evenements_controller.rb:79
+  [1m[36mCommentaire Create (28.9ms)[0m  [1m[32mINSERT INTO "commentaires" ("comment", "evenement_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["comment", " Ovy Beloha Be Itokiana"], ["evenement_id", 1], ["created_at", "2018-06-07 10:59:37.168705"], ["updated_at", "2018-06-07 10:59:37.168705"]]
+  ↳ app/controllers/evenements_controller.rb:79
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/evenements_controller.rb:79
+Redirected to http://localhost:3000/evenements/1
+Completed 302 Found in 201ms (ActiveRecord: 65.5ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-07 13:59:37 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.3ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:86
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.8ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (1.8ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (143.6ms)
+Completed 200 OK in 924ms (Views: 685.0ms | ActiveRecord: 42.7ms)
+
+

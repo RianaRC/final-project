@@ -29,6 +29,25 @@
   <strong>organisateur:</strong>
   <%= @evenement.organisateur.name %>
 </p>
+
+<% @comments.each do |f| %>
+  <ul>
+    <li> <%= f.comment %> </li>
+  </ul>
+<%end%>
+
+<form action="/" method="post" >
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+    <input type="hidden" name="id_en_cours" value="<%= @evenement.id %>"  >
+    Votre commentaire: <br>
+    <textarea name="comment"
+    rows="3" cols="50">
+    </textarea> <br><br>
+    <input  type="submit" name="Envoyer">
+
+</form>
+
+
 <% if current_user.id == @evenement.user_id %>
 <%= link_to 'Edit', edit_evenement_path(@evenement) %> 
 <%end%>
