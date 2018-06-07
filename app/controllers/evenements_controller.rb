@@ -12,6 +12,7 @@ class EvenementsController < ApplicationController
   def show
     if user_signed_in?
     @evenement = Evenement.find(params[:id])
+    @comments = Commentaire.where(evenement_id: @evenement.id)
     else
       redirect_to new_user_session_path
     end
@@ -68,6 +69,15 @@ class EvenementsController < ApplicationController
       format.html { redirect_to evenements_url, notice: 'Evenement was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def newcomment
+    # @evenement = Evenement.find(params[:id])
+    @new = Commentaire.new
+    @new.comment = params['comment']
+    @new.evenement = Evenement.find(params[:id_en_cours])
+    @new.save
+    redirect_to evenement_path(params[:id_en_cours])
   end
 
   private

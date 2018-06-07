@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_07_070436) do
+ActiveRecord::Schema.define(version: 2018_06_07_083922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2018_06_07_070436) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "commentaires", force: :cascade do |t|
+    t.string "comment"
+    t.bigint "evenement_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["evenement_id"], name: "index_commentaires_on_evenement_id"
   end
 
   create_table "evenements", force: :cascade do |t|
@@ -68,5 +76,6 @@ ActiveRecord::Schema.define(version: 2018_06_07_070436) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "commentaires", "evenements"
   add_foreign_key "evenements", "categories"
 end
