@@ -80,6 +80,11 @@ class EvenementsController < ApplicationController
     redirect_to evenement_path(params[:id_en_cours])
   end
 
+  def delcomment
+    @comment = Commentaire.find(params[:id_comment])
+    @comment.destroy
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evenement
