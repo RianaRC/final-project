@@ -7754,3 +7754,70 @@ Processing by EvenementsController#index as HTML
 Completed 200 OK in 153ms (Views: 140.8ms | ActiveRecord: 7.7ms)
 
 
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-09 09:30:56 +0300
+  [1m[35m (2.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (2.4ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:91
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.6ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (10.6ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (7.9ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (284.4ms)
+Completed 200 OK in 1223ms (Views: 864.0ms | ActiveRecord: 89.6ms)
+
+
+Started GET "/evenements/del?id_comment=1&Delete=Submit+Query" for 127.0.0.1 at 2018-06-09 09:31:03 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id_comment"=>"1", "Delete"=>"Submit Query", "id"=>"del"}
+  [1m[36mEvenement Load (1.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:91
+Completed 404 Not Found in 6ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=del):
+  
+app/controllers/evenements_controller.rb:91:in `set_evenement'
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-09 09:36:10 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.2ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:90
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.7ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (1.6ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (2.2ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (148.5ms)
+Completed 200 OK in 544ms (Views: 306.8ms | ActiveRecord: 69.1ms)
+
+
+Started GET "/evenements/del?id_comment=5&Delete=Submit+Query" for 127.0.0.1 at 2018-06-09 09:36:14 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id_comment"=>"5", "Delete"=>"Submit Query", "id"=>"del"}
+  [1m[36mEvenement Load (3.0ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:90
+Completed 404 Not Found in 11ms (ActiveRecord: 3.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=del):
+  
+app/controllers/evenements_controller.rb:90:in `set_evenement'
+  [1m[36mEvenement Load (5.9ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" ORDER BY "evenements"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]

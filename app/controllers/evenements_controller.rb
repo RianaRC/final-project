@@ -81,7 +81,6 @@ class EvenementsController < ApplicationController
   end
 
   def delcomment
-    @comment = Commentaire.find(params[:id_comment])
     @comment.destroy
   end
 
