@@ -32,7 +32,11 @@
 
 <% @comments.each do |f| %>
   <ul>
+    <form action="del" method="delete" >
+      <input type="hidden" name="id_comment" value="<%= f.id %>"  >
       <li> <%= f.comment %> </li>
+      <input  type="submit" name="Envoyer">
+    </form>
   </ul>
 <%end%>
 

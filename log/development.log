@@ -8270,3 +8270,103 @@ Completed 200 OK in 157ms (Views: 148.5ms | ActiveRecord: 4.4ms)
 
 
   [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2018-06-10 08:26:12 +0300
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 1065ms (Views: 1001.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2018-06-10 08:26:18 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (97.6ms)
+Completed 200 OK in 332ms (Views: 187.0ms | ActiveRecord: 32.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2018-06-10 08:26:27 +0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 123ms (Views: 119.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-06-10 08:26:58 +0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rWdnHPq5N8EXpGW7PYaS6mSoRGKb441uTYT0xRTkoXP7GsLqTEEL581mM2RCtuNjaN5+qvA6bKAdpZkeVnSeEA==", "user"=>{"name"=>"Meyer", "phone"=>"098765443", "country"=>"Madagascar", "city"=>"Antananarivo", "email"=>"nrjmeyer@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Exists (11.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nrjmeyer@gmail.com"], ["LIMIT", 1]]
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Create (5.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "name", "phone", "country", "city") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["email", "nrjmeyer@gmail.com"], ["encrypted_password", "$2a$11$ypXNjbS1rPZbhiz8nA.WBOHAATEM0iBZfUeukHYusztYExwClzC5q"], ["created_at", "2018-06-10 05:26:58.844084"], ["updated_at", "2018-06-10 05:26:58.844084"], ["name", "Meyer"], ["phone", "098765443"], ["country", "Madagascar"], ["city", "Antananarivo"]]
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (10.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[36mUser Update (2.9ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", "2018-06-10 05:26:58.870675"], ["last_sign_in_at", "2018-06-10 05:26:58.870675"], ["current_sign_in_ip", "127.0.0.1/32"], ["last_sign_in_ip", "127.0.0.1/32"], ["updated_at", "2018-06-10 05:26:58.876159"], ["id", 2]]
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ /home/riana/.rvm/gems/ruby-2.5.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Redirected to http://localhost:3000/
+Completed 302 Found in 458ms (ActiveRecord: 34.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-06-10 08:26:59 +0300
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 153ms (Views: 145.9ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/evenements" for 127.0.0.1 at 2018-06-10 08:27:04 +0300
+Processing by EvenementsController#index as HTML
+  Rendering evenements/index.html.erb within layouts/application
+  [1m[36mEvenement Load (6.5ms)[0m  [1m[34mSELECT "evenements".* FROM "evenements"[0m
+  ↳ app/views/evenements/index.html.erb:18
+  [1m[36mCategory Load (4.2ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:24
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/evenements/index.html.erb:26
+  Rendered evenements/index.html.erb within layouts/application (160.9ms)
+Completed 200 OK in 286ms (Views: 219.1ms | ActiveRecord: 33.3ms)
+
+
+Started GET "/evenements/1" for 127.0.0.1 at 2018-06-10 08:27:09 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvenement Load (1.5ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:91
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:13
+  [1m[36mCACHE Evenement Load (0.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:14
+  Rendering evenements/show.html.erb within layouts/application
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:25
+  [1m[36mOrganisateur Load (10.6ms)[0m  [1m[34mSELECT  "organisateurs".* FROM "organisateurs" WHERE "organisateurs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/evenements/show.html.erb:30
+  [1m[36mCommentaire Load (10.3ms)[0m  [1m[34mSELECT "commentaires".* FROM "commentaires" WHERE "commentaires"."evenement_id" = $1[0m  [["evenement_id", 1]]
+  ↳ app/views/evenements/show.html.erb:33
+  Rendered evenements/show.html.erb within layouts/application (110.4ms)
+Completed 200 OK in 238ms (Views: 157.4ms | ActiveRecord: 46.8ms)
+
+
+Started GET "/evenements/del?id_comment=1&Envoyer=Submit+Query" for 127.0.0.1 at 2018-06-10 08:27:12 +0300
+Processing by EvenementsController#show as HTML
+  Parameters: {"id_comment"=>"1", "Envoyer"=>"Submit Query", "id"=>"del"}
+  [1m[36mEvenement Load (1.1ms)[0m  [1m[34mSELECT  "evenements".* FROM "evenements" WHERE "evenements"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/evenements_controller.rb:91
+Completed 404 Not Found in 6ms (ActiveRecord: 1.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Evenement with 'id'=del):
+  
+app/controllers/evenements_controller.rb:91:in `set_evenement'
