@@ -11,10 +11,39 @@
     </div>
   <% end %>
   
-  
   <div class="field">
-    <%= form.label :organisateur_id %>
-    <%= form.text_field :organisateur_id %>
+    <input type="file"/>
+  </div>
+  <canvas width="400" height="200"></canvas>
+  <img src="" id="pic" width="400" height="200">
+  <script>
+    $("document").ready(function() {
+      $('input[type=file]')
+          .on('change', function(f) {
+              var file = f.target.files[0];
+              if (file) {
+                  var reader = new FileReader();
+                  var image = new Image();
+                  reader.onload = function(e) {
+                      image.src = e.target.result;
+                      var canvas = $('canvas')[0];
+                      canvas.height = image.height;
+                      canvas.width = image.width;
+                      var ctx = canvas.getContext('2d');
+                      ctx.drawImage(image, 0, 0);
+                      var dataURL = canvas.toDataURL('image/png');
+                      // console.log(dataURL);
+                      $("#pic").attr("src",dataURL)
+                      $("#picture").val(dataURL)
+                  }
+                  reader.readAsDataURL(file);
+                  $('input[type=file]').val("")
+              }
+          });
+    });
+</script>
+  <div class="field">
+    <%= form.hidden_field :organisateur_id %>
   </div>
 
   <div class="field">
@@ -38,8 +67,11 @@
   </div>
 
   <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
+    <%= form.hidden_field :category_id, value: "coucou" %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :picture, value: "", id: "picture" %>
   </div>
 
   <div class="actions">
