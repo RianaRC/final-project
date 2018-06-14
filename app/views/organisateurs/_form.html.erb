@@ -12,18 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :kind %>
-    <%= form.text_field :kind %>
-  </div>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :Nom_organisation %>
+    <%= form.text_field :title %>
   </div>
 
   <div class="field">
     <%= form.label :about %>
     <%= form.text_area :about %>
+  </div>
+
+  <div class="field">
+    <select name="status_id">
+      <% @statuses.each do |s|%>
+        <option value="<%= s.id %>"><%= s.title %></option>
+      <%end%>
+    </select>
   </div>
 
   <div class="actions">

@@ -1,39 +1,167 @@
-<p id="notice"><%= notice %></p>
+<%= render 'layouts/nav'%>
+<!--================Breadcrumb Area =================-->
+<section class="breadcrumb_area blog_banner_two">
+    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background=""></div>
+    <div class="container">
+        <div class="page-cover text-center">
+            <h2 class="page-cover-tittle f_48">Mes evenements</h2>
+            <ol class="breadcrumb">
+                <li><a href="<%= root_path %>">Acceuil</a></li>
+                <li class="active">Mes evenements</li>
+            </ol>
+        </div>
+    </div>
+</section>
+<!--================Breadcrumb Area =================-->
+  
+  <!--================Blog Categorie Area =================-->
+  
+  <!--================Blog Categorie Area =================-->
+  
+  <!--================Blog Area =================-->
+  <section class="blog_area">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-8">
+                  <div class="blog_left_sidebar">
+                  <% if @events != [] %>
+                    <% @events.each do |e| %>
+                      <article class="row blog_item">
+                          <div class="col-md-3">
+                              <div class="blog_info text-right">
+                                  <div class="post_tag">
+                                      <a href="#"><%= e.category.name.capitalize %></a>
+                                  </div>
+                                  <ul class="blog_meta list_style">
+                                      <li><a href="#"><%= User.find(e.organisateur.user_id).name %><i class="lnr lnr-user"></i></a></li>
+                                      <li><a href="#"><%= e.date.strftime("%d %b, %Y") %><i class="lnr lnr-calendar-full"></i></a></li>
+                                      <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
+                                      <li><a href="#"><%= Commentaire.where(evenement_id: e.id).count %> Comments<i class="lnr lnr-bubble"></i></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-9">
+                              <div class="blog_post">
+                                  <div style="
+                                    background: url(<%= e.picture_url %>);
+                                    background-size: cover;
+                                    background-position: center center;
+                                    width: 100%;
+                                    height: 300px;
+                                    ">
+                                  </div>
+                                  <div class="blog_details">
+                                      <a href="#"><h2><%= e.titre %></h2></a>
+                                      <p><%= e.description %></p>
+                                      <a href="<%= event_show_path(e.id)%>" class="view_btn button_hover">Voir plus</a>
+                                  </div>
+                              </div>
+                          </div>
+                      </article>
+                    <%end%>
+                  <%else%>
+                  <h1 class="typo-list">Vous n'avez aucun evenement actif</h1> 
+                  <a href="<%= new_evenement_path %>" class="btn theme_btn button_hover">Creer un evenement</a>
+                  <%end%>
+                  </div>
+              </div>
+              <div class="col-lg-4">
+                  <div class="blog_right_sidebar">
+                      <aside class="single_sidebar_widget search_widget">
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Search Posts">
+                              <span class="input-group-btn">
+                                  <button class="btn btn-default" type="button"><i class="lnr lnr-magnifier"></i></button>
+                              </span>
+                          </div><!-- /input-group -->
+                          <div class="br"></div>
+                      </aside>
+                      <aside class="single_sidebar_widget popular_post_widget">
+                          <h3 class="widget_title">Popular Posts</h3>
+                          <div class="media post_item">
+                              <img src="image/blog/post1.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="blog-details.html"><h3>Space The Final Frontier</h3></a>
+                                  <p>02 Hours ago</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="image/blog/post2.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="blog-details.html"><h3>The Amazing Hubble</h3></a>
+                                  <p>02 Hours ago</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="image/blog/post3.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="blog-details.html"><h3>Astronomy Or Astrology</h3></a>
+                                  <p>03 Hours ago</p>
+                              </div>
+                          </div>
+                          <div class="media post_item">
+                              <img src="image/blog/post4.jpg" alt="post">
+                              <div class="media-body">
+                                  <a href="blog-details.html"><h3>Asteroids telescope</h3></a>
+                                  <p>01 Hours ago</p>
+                              </div>
+                          </div>
+                          <div class="br"></div>
+                      </aside>
+                      <aside class="single_sidebar_widget post_category_widget">
+                          <h4 class="widget_title">Categories</h4>
+                          <ul class="list_style cat-list">
+                            <% @categories.each do |c| %>
+                              <li>
+                                  <a href="#" class="d-flex justify-content-between">
+                                      <p><%= c.name.capitalize %></p>
+                                      <p><%= Evenement.where(category_id: c.id).count %></p>
+                                  </a>
+                              </li>	
+                            <%end%>  													
+                          </ul>
+                          <div class="br"></div>
+                      </aside>
+                      <aside class="single-sidebar-widget newsletter_widget">
+                          <h4 class="widget_title">Newsletter</h4>
+                          <p>
+                          Here, I focus on a range of items and features that we use in life without
+                          giving them a second thought.
+                          </p>
+                          <div class="form-group d-flex flex-row">
+                              <div class="input-group">
+                                  <div class="input-group-prepend">
+                                      <div class="input-group-text"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                                  </div>
+                                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email'">
+                              </div>
+                              <a href="#" class="bbtns">Subcribe</a>
+                          </div>	
+                          <p class="text-bottom">You can unsubscribe at any time</p>	
+                          <div class="br"></div>							
+                      </aside>
+                      <aside class="single-sidebar-widget tag_cloud_widget">
+                          <h4 class="widget_title">Tag Clouds</h4>
+                          <ul class="list_style">
+                              <li><a href="#">Technology</a></li>
+                              <li><a href="#">Fashion</a></li>
+                              <li><a href="#">Architecture</a></li>
+                              <li><a href="#">Fashion</a></li>
+                              <li><a href="#">Food</a></li>
+                              <li><a href="#">Technology</a></li>
+                              <li><a href="#">Lifestyle</a></li>
+                              <li><a href="#">Art</a></li>
+                              <li><a href="#">Adventure</a></li>
+                              <li><a href="#">Food</a></li>
+                              <li><a href="#">Lifestyle</a></li>
+                              <li><a href="#">Adventure</a></li>
+                          </ul>
+                      </aside>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  <!--================Blog Area =================-->
+<%= render 'layouts/footer'%>
 
-<h1>Evenements</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Titre</th>
-      <th>Description</th>
-      <th>Date</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @evenements.each do |evenement| %>
-      <tr>
-      <td><%= evenement.titre %></td>
-      <td><%= evenement.description %></td>
-      <td><%= evenement.date %></td>
-      <td><%= evenement.price %></td>
-      <td><%= evenement.category.name %></td>
-      <td><%= link_to 'Show', evenement %></td>
-      <% if user_signed_in? %>
-        <% if current_user.id == evenement.user_id %>
-          <td><%= link_to 'Edit', edit_evenement_path(evenement) %></td>
-          <td><%= link_to 'Destroy', evenement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Evenement', new_evenement_path %>

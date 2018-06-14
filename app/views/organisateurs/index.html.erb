@@ -5,9 +5,8 @@
 <table>
   <thead>
     <tr>
-      <th>Kind</th>
-      <th>Name</th>
-      <th>About</th>
+      <th>Titre</th>
+      <th>A propos</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,8 +14,7 @@
   <tbody>
     <% @organisateurs.each do |organisateur| %>
       <tr>
-        <td><%= organisateur.kind %></td>
-        <td><%= organisateur.name %></td>
+        <td><%= organisateur.title %></td>
         <td><%= organisateur.about %></td>
         <td><%= link_to 'Show', organisateur %></td>
         <td><%= link_to 'Edit', edit_organisateur_path(organisateur) %></td>

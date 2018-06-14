@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_12_111106) do
+ActiveRecord::Schema.define(version: 2018_06_13_090852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,11 +44,28 @@ ActiveRecord::Schema.define(version: 2018_06_12_111106) do
   end
 
   create_table "organisateurs", force: :cascade do |t|
-    t.string "kind"
-    t.string "name"
+    t.string "title"
     t.text "about"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_organisateurs_on_user_id"
+  end
+
+  create_table "sections", force: :cascade do |t|
+    t.string "title"
+    t.datetime "duration"
+    t.integer "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "title"
+    t.bigint "organisateur_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organisateur_id"], name: "index_statuses_on_organisateur_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -69,6 +86,8 @@ ActiveRecord::Schema.define(version: 2018_06_12_111106) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "avatar"
+    t.bigint "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
@@ -77,6 +96,7 @@ ActiveRecord::Schema.define(version: 2018_06_12_111106) do
     t.string "city"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["section_id"], name: "index_users_on_section_id"
   end
 
   add_foreign_key "commentaires", "evenements"

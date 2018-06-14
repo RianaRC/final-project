@@ -1,4 +1,4 @@
-<%= form_with(model: evenement, local: true) do |form| %>
+<%= form_with(model: evenement, local: true, :html => {multipart: true}) do |form| %>
   <% if evenement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(evenement.errors.count, "error") %> prohibited this evenement from being saved:</h2>
@@ -10,40 +10,10 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="field">
-    <input type="file"/>
-  </div>
-  <canvas width="400" height="200"></canvas>
-  <img src="" id="pic" width="400" height="200">
-  <script>
-    $("document").ready(function() {
-      $('input[type=file]')
-          .on('change', function(f) {
-              var file = f.target.files[0];
-              if (file) {
-                  var reader = new FileReader();
-                  var image = new Image();
-                  reader.onload = function(e) {
-                      image.src = e.target.result;
-                      var canvas = $('canvas')[0];
-                      canvas.height = image.height;
-                      canvas.width = image.width;
-                      var ctx = canvas.getContext('2d');
-                      ctx.drawImage(image, 0, 0);
-                      var dataURL = canvas.toDataURL('image/png');
-                      // console.log(dataURL);
-                      $("#pic").attr("src",dataURL)
-                      $("#picture").val(dataURL)
-                  }
-                  reader.readAsDataURL(file);
-                  $('input[type=file]').val("")
-              }
-          });
-    });
-</script>
-  <div class="field">
-    <%= form.hidden_field :organisateur_id %>
+    <%= form.label :Picture %>
+    <%= form.file_field :picture%>
   </div>
 
   <div class="field">
@@ -57,8 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.datetime_select :date %>
+    <div class="input-group date" id="datetimepicker11">
+      <%= form.label :date %>
+      <%= form.text_field :date, class: "form-control" %>
+      <span class="input-group-addon">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+      </span>
+    </div>
   </div>
 
   <div class="field">
@@ -67,11 +42,19 @@
   </div>
 
   <div class="field">
-    <%= form.hidden_field :category_id, value: "coucou" %>
+    <select name="category_id">
+      <% @categories.each do |cat|%>
+        <option value="<%= cat.id %>"><%= cat.name %></option>
+      <%end%>
+    </select>
   </div>
 
   <div class="field">
-    <%= form.hidden_field :picture, value: "", id: "picture" %>
+    <select name="organisateur_id">
+      <% @organisateurs.each do |org|%>
+        <option value="<%= org.id %>"><%= org.title %></option>
+      <%end%>
+    </select>
   </div>
 
   <div class="actions">

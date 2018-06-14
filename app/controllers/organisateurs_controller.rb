@@ -15,6 +15,12 @@ class OrganisateursController < ApplicationController
   # GET /organisateurs/new
   def new
     @organisateur = Organisateur.new
+    @statuses = Status.all
+    if user_signed_in?
+      @categories = Category.all
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /organisateurs/1/edit
@@ -25,10 +31,12 @@ class OrganisateursController < ApplicationController
   # POST /organisateurs.json
   def create
     @organisateur = Organisateur.new(organisateur_params)
+    @organisateur.status = Status.find(params[:status_id])
+    current_user.organisateur = @organisateur
 
     respond_to do |format|
       if @organisateur.save
-        format.html { redirect_to @organisateur, notice: 'Organisateur was successfully created.' }
+        format.html { redirect_to new_evenement_path, notice: 'Organisateur was successfully created.' }
         format.json { render :show, status: :created, location: @organisateur }
       else
         format.html { render :new }
@@ -69,6 +77,6 @@ class OrganisateursController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organisateur_params
-      params.require(:organisateur).permit(:kind, :name, :about)
+      params.require(:organisateur).permit(:title, :about)
     end
 end

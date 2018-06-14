@@ -5,19 +5,46 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-e1 = Evenement.create( titre:'Smatchin 2018', description:'Venez supporter votre equipe les loulous', price: 300 )
-e2 = Evenement.create( titre:'Sayna Yeaeh', description:'Ne ratez pas l\'occasion de votre vie', price: 001)
 
-c1 = Category.create( name:'Sport')
-c2 = Category.create( name:'Business')
 
-o1 = Organisateur.create( kind:'Entreprise', name:'Sayna', about:'Help people rise out of poverty by digital work')
-o2 = Organisateur.create( kind:'Universite', name:'FMPA', about:'le groupe de gens qui organise le tournoi de l\'année')
+# u1 = User.first
+# e1 = Evenement.create( titre:'Sayna Yeaeh', date: '2018-04-07 00:00:00', description:'Ne ratez pas l\'occasion de votre vie', price: 300,picture: "coucou.jpg")
 
-e1.category = c1
-e2.category = c2
-e1.organisateur = o1
-e2.organisateur = o2
+# c1 = Category.create( name:'education')
 
-e1.save
-e2.save
+# o1 = Organisateur.create( title:'Sayna', about:'Help people rise out of poverty by digital work')
+
+# section = Section.create(title: 'free', duration: '2018-03-12 00:00:00')
+
+s1 = Status.create(title: 'entreprise')
+
+# u1.organisateur = o1
+
+# u1.section = section
+# e1.category = c1
+# e1.organisateur = o1
+# o1.status = s1
+
+
+# e1.save
+# c1.save
+# o1.save
+# section.save
+# s1.save
+
+# e = Evenement.first
+# puts "Section: "+e.section.title
+# puts "Organisateur: "+e.organisateur.title
+# puts "Section: "+e.category.name
+# puts "User:"+u1.organisateur.title
+
+# u2 = User.new
+# puts u2
+# section = Section.create(title: 'free', duration: '2018-03-12 00:00:00')
+# section.save
+# u2.section = section
+
+# puts User.first.name
+
+# p u2
+

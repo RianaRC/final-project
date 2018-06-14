@@ -27,7 +27,7 @@
 
 <p>
   <strong>organisateur:</strong>
-  <%= @evenement.organisateur.name %>
+  <%= @evenement.organisateur.title %>
 </p>
 
 <% @comments.each do |f| %>
@@ -51,6 +51,8 @@
 
 </form>
 
+<%= image_tag @evenement.picture_url %>
+<%= link_to "Deconnexion", evenement_path(@evenement.id), method: :delete %>
 
 <% if current_user.id == @evenement.user_id %>
 <%= link_to 'Edit', edit_evenement_path(@evenement) %> 

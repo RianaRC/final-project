@@ -4,15 +4,25 @@ class EvenementsController < ApplicationController
   # GET /evenements
   # GET /evenements.json
   def index
-    @evenements = Evenement.all
+    if user_signed_in?
+      @categories = Category.all
+      @organisateur = Organisateur.find_by(user_id: current_user.id)
+      if @organisateur
+        @events = Evenement.where(organisateur_id: @organisateur.id)
+      else
+        @events = []
+      end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /evenements/1
   # GET /evenements/1.json
   def show
     if user_signed_in?
-    @evenement = Evenement.find(params[:id])
-    @comments = Commentaire.where(evenement_id: @evenement.id)
+      @evenement = Evenement.find(params[:id])
+      @comments = Commentaire.where(evenement_id: @evenement.id)
     else
       redirect_to new_user_session_path
     end
@@ -20,10 +30,16 @@ class EvenementsController < ApplicationController
 
   # GET /evenements/new
   def new
+    @categories = Category.all
+    @organisateurs = Organisateur.where(user_id: current_user.id)
     if user_signed_in?
-    @evenement = Evenement.new
+      if @organisateurs != []
+        @evenement = Evenement.new
+      else
+        redirect_to new_organisateur_path
+      end
     else
-    redirect_to new_user_session_path
+      redirect_to new_user_session_path
     end
   end
 
@@ -34,8 +50,14 @@ class EvenementsController < ApplicationController
   # POST /evenements
   # POST /evenements.json
   def create
+    @categories = Category.all
+    @organisateurs = Organisateur.where(user_id: current_user.id)
+
     @evenement = Evenement.new(evenement_params)
-    @evenement.user_id = current_user.id
+    cat = Category.find(params[:category_id])
+    org = Organisateur.find(params[:organisateur_id])
+    @evenement.category = cat
+    @evenement.organisateur = org
     respond_to do |format|
       if @evenement.save
         format.html { redirect_to @evenement, notice: 'Evenement was successfully created.' }
@@ -64,25 +86,15 @@ class EvenementsController < ApplicationController
   # DELETE /evenements/1
   # DELETE /evenements/1.json
   def destroy
+    comment = Commentaire.where(evenement_id: params[:id])
+    comment.each do |c|
+      c.destroy
+    end
     @evenement.destroy
     respond_to do |format|
       format.html { redirect_to evenements_url, notice: 'Evenement was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def newcomment
-    # @evenement = Evenement.find(params[:id])
-    @new = Commentaire.new
-    @new.comment = params['comment']
-    @new.evenement = Evenement.find(params[:id_en_cours])
-    @new.save
-    redirect_to evenement_path(params[:id_en_cours])
-  end
-
-  def delcomment
-    @comment = Commentaire.find(params[:id_comment])
-    @comment.destroy
   end
 
   private
@@ -93,6 +105,6 @@ class EvenementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evenement_params
-      params.require(:evenement).permit(:titre, :description, :date, :price, :category_id, :organisateur_id, :picture)
+      params.require(:evenement).permit(:titre, :description, :date, :price, :picture)
     end
 end

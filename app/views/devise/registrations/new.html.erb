@@ -4,9 +4,20 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :Avatar %>
+    <%= f.file_field :avatar%>
+  </div>
+
+  <div class="field">
   <%= f.label :name %> <br> 
   <%= f.text_field :name, autofocus: true %>
   </div>
+
+  <div class="field">
+  <% section1 = Section.first %>
+  <%= f.hidden_field :section_id, value: section1.id %>
+  </div>
+
 
   <div class="field">
   <%= f.label :phone %> <br> 
