@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# u1 = User.first
+u1 = User.first
 # e1 = Evenement.create( titre:'Sayna Yeaeh', date: '2018-04-07 00:00:00', description:'Ne ratez pas l\'occasion de votre vie', price: 300,picture: "coucou.jpg")
 
 # c1 = Category.create( name:'education')
@@ -16,10 +16,16 @@
 
 # section = Section.create(title: 'free', duration: '2018-03-12 00:00:00')
 
-s1 = Status.create(title: 'entreprise')
+# s1 = Status.create(title: 'entreprise')
 
 # u1.organisateur = o1
-
+coms = Commentaire.create(comment: "Coucou")
+coms.user = u1
+coms.evenement = Evenement.last
+# p Evenement.last
+coms.save!
+# o1.user = u1
+# o1.save
 # u1.section = section
 # e1.category = c1
 # e1.organisateur = o1

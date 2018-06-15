@@ -31,12 +31,16 @@ class EvenementsController < ApplicationController
   # GET /evenements/new
   def new
     @categories = Category.all
-    @organisateurs = Organisateur.where(user_id: current_user.id)
     if user_signed_in?
+      @organisateurs = Organisateur.where(user_id: current_user.id)
+      @statuses = Status.all
+      @organisateur = Organisateur.new
       if @organisateurs != []
         @evenement = Evenement.new
       else
-        redirect_to new_organisateur_path
+        # redirect_to new_organisateur_path
+        @evenement = Evenement.new
+        @organisateur = Organisateur.new
       end
     else
       redirect_to new_user_session_path
@@ -45,6 +49,12 @@ class EvenementsController < ApplicationController
 
   # GET /evenements/1/edit
   def edit
+    if user_signed_in?
+      @categories = Category.all
+      @organisateurs = Organisateur.where(user_id: current_user.id)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # POST /evenements
@@ -105,6 +115,6 @@ class EvenementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evenement_params
-      params.require(:evenement).permit(:titre, :description, :date, :price, :picture)
+      params.require(:evenement).permit(:titre, :description, :date, :price, :picture, :lat, :lng)
     end
 end

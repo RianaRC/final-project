@@ -30,7 +30,7 @@
                                       <a href="#"><%= e.category.name.capitalize %></a>
                                   </div>
                                   <ul class="blog_meta list_style">
-                                      <li><a href="#"><%= User.find(e.organisateur.user_id).name %><i class="lnr lnr-user"></i></a></li>
+                                      <li><a href="#"><%= e.organisateur.user.name %><i class="lnr lnr-user"></i></a></li>
                                       <li><a href="#"><%= e.date.strftime("%d %b, %Y") %><i class="lnr lnr-calendar-full"></i></a></li>
                                       <li><a href="#">1.2M Views<i class="lnr lnr-eye"></i></a></li>
                                       <li><a href="#"><%= Commentaire.where(evenement_id: e.id).count %> Comments<i class="lnr lnr-bubble"></i></a></li>

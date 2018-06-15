@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/search', to: 'search#index', as: 'search'
   resources :organisateurs
   resources :evenements
   devise_for :users, controllers: {registrations: "registrations"}
@@ -8,5 +9,6 @@ Rails.application.routes.draw do
   delete '/comment/:id_event/:id_comment', to: 'home#delcomment', as: "del_comment"
 
   get 'events/:id/show', to: 'home#show', as: 'event_show'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

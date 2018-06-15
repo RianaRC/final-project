@@ -5,6 +5,10 @@ class OrganisateursController < ApplicationController
   # GET /organisateurs.json
   def index
     @organisateurs = Organisateur.all
+    respond_to do |format|
+      format.html
+      format.json {render json: @organisateurs}
+    end
   end
 
   # GET /organisateurs/1
@@ -32,12 +36,13 @@ class OrganisateursController < ApplicationController
   def create
     @organisateur = Organisateur.new(organisateur_params)
     @organisateur.status = Status.find(params[:status_id])
-    current_user.organisateur = @organisateur
+    @organisateur.user = current_user
 
     respond_to do |format|
       if @organisateur.save
         format.html { redirect_to new_evenement_path, notice: 'Organisateur was successfully created.' }
         format.json { render :show, status: :created, location: @organisateur }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @organisateur.errors, status: :unprocessable_entity }

@@ -1,4 +1,5 @@
-<%= form_with(model: evenement, local: true, :html => {multipart: true}) do |form| %>
+
+<%= form_with(model: evenement, local: true, :html => {id: "event",multipart: true}) do |form| %>
   <% if evenement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(evenement.errors.count, "error") %> prohibited this evenement from being saved:</h2>
@@ -50,12 +51,27 @@
   </div>
 
   <div class="field">
-    <select name="organisateur_id">
+    <select name="organisateur_id" id="opt-org">
       <% @organisateurs.each do |org|%>
         <option value="<%= org.id %>"><%= org.title %></option>
       <%end%>
     </select>
   </div>
+
+  <!--map div-->
+  <div id="map"  class="map"></div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :lat, id: "lat",readonly: "yes"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :lng, id: "lng", readonly: "yes" %>
+  </div>
+
+
 
   <div class="actions">
     <%= form.submit %>
